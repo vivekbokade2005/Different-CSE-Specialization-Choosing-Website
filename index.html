@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>CSE Career Roadmap — Final</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-[Inter] bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900 transition-colors duration-300">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center bg-gradient-to-br from-indigo-500 to-cyan-400 shadow-md">
+          <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="currentColor"/></svg>
+        </div>
+        <div>
+          <div class="text-lg font-semibold">CSE Career Roadmap</div>
+          <div class="text-xs text-slate-500">YouTube-first learning paths • Progress saved locally</div>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-3">
+        <a href="#" data-nav="landing" class="nav-link text-sm text-slate-600 hover:text-indigo-600">Home</a>
+        <a href="#" data-nav="search" class="nav-link text-sm text-slate-600 hover:text-indigo-600">Domains</a>
+        <a href="#" data-nav="choose" class="nav-link text-sm text-slate-600 hover:text-indigo-600">Choose</a>
+        <a href="#" data-nav="about" class="nav-link text-sm text-slate-600 hover:text-indigo-600">About</a>
+        <a class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-red-50 border border-red-100 text-red-700" href="https://www.youtube.com/@CodeWithHarry" target="_blank" rel="noopener">Intro</a>
+        <button id="btn-theme" class="px-2 py-1 rounded-md bg-slate-100 border border-slate-200">🌙</button>
+    <a href="#" data-nav="coding" class="nav-link text-sm text-slate-600 hover:text-indigo-600">Coding</a>
+  <a href="#" data-nav="help" class="nav-link text-sm text-slate-600 hover:text-indigo-600">Help</a>
+
+    </nav>
+    </div>
+  </header>
+
+  <!-- PAGES SPA -->
+  <!-- SIGNUP (shown first) -->
+  <main id="page-signup" class="page active min-h-[86vh] flex items-center justify-center">
+    <div class="w-full max-w-xl px-6 py-12">
+      <div class="glass rounded-2xl p-8 relative overflow-hidden">
+        <h2 class="text-2xl font-bold mb-2">Create an account to start</h2>
+        <p class="text-slate-600 mb-6">Signup stores your name locally (optional). Start building a roadmap and tracking progress.</p>
+
+        <form id="signup-form" class="space-y-4">
+          <div>
+            <label class="text-sm text-slate-700">Username</label>
+            <input id="input-id" class="input mt-2" type="text" placeholder="e.g., rahul_k" required minlength="3" />
+          </div>
+          <div>
+            <label class="text-sm text-slate-700">Password</label>
+            <input id="input-password" class="input mt-2" type="password" placeholder="Min 6 characters" required minlength="6" />
+          </div>
+          <div class="flex items-center justify-between">
+            <label class="inline-flex items-center gap-2 text-sm text-slate-700">
+              <input id="remember" type="checkbox" class="accent-indigo-500">
+              Remember me (local)
+            </label>
+            <div class="flex gap-3">
+              <button type="submit" class="btn-primary">Continue</button>
+              <button id="skip-signup" type="button" class="btn-ghost">Skip</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- signup success -->
+        <div id="signup-success" class="signup-success hidden">
+          <svg viewBox="0 0 52 52"><path d="M14 27l8 8 16-16" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          <div class="mt-2 text-slate-700">Welcome — redirecting to Home</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- LANDING / HOME -->
+  <main id="page-landing" class="page hidden min-h-[86vh]">
+<div class="max-w-7xl mx-auto px-6 pt-6 pb-16 grid md:grid-cols-2 gap-12 items-start">
+    <div class="space-y-6 -mt-6">
+      <div class="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-100 to-cyan-100 px-3 py-1 rounded-full">
+          <span class="text-indigo-600 font-semibold">Welcome</span>
+          <span class="text-sm text-slate-500">Start your CSE learning journey</span>
+        </div>
+
+        <h1 class="mt-6 text-4xl md:text-5xl font-extrabold leading-tight">
+  Professional <span class="text-indigo-600">CSE Roadmaps</span> • Build • Learn • Ship
+</h1>
+
+        <p class="text-slate-600 max-w-xl">Curated YouTube resources, interactive timeline roadmaps, progress tracking, certified course links, and more — designed for students.</p>
+
+        <div class="flex gap-3 animate-fade-in-up">
+  <button id="btn-to-search" class="btn-secondary hover:scale-105 hover:shadow-lg transition-transform duration-200">Find Roadmap</button>
+  <button id="btn-take-quiz" class="btn-outline hover:scale-105 hover:shadow-lg transition-transform duration-200">Take Quiz</button>
+  <button id="btn-open-choose" class="btn-ghost hover:scale-105 hover:shadow-lg transition-transform duration-200">Choose Domain</button>
+</div>
+
+
+        <div id="home-recommendation" class="mt-4"></div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
+          <div class="p-4 rounded-xl bg-gradient-to-r from-indigo-50 to-cyan-50">
+            <div class="font-semibold">Why this helps</div>
+            <div class="text-sm text-slate-600 mt-1">Free YouTube resources, practical projects, and an organized learning path make progress measurable.</div>
+          </div>
+          <div class="p-4 rounded-xl bg-gradient-to-r from-amber-50 to-rose-50">
+            <div class="font-semibold">Teacher-ready</div>
+            <div class="text-sm text-slate-600 mt-1">Readable, well-structured, and professional — perfect for class presentations.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="glass p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-3">Quick Domains</h3>
+          <div class="grid grid-cols-1 gap-3">
+            <div class="flex items-center gap-3 p-3 rounded-lg border">
+              <div class="w-12 h-12 rounded-md bg-gradient-to-br from-indigo-400 to-cyan-400 text-white flex items-center justify-center font-bold">WD</div>
+              <div><div class="font-semibold">Web Development</div><div class="text-sm text-slate-600">HTML → JS → Frameworks → Backend → Deploy</div></div>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-lg border">
+              <div class="w-12 h-12 rounded-md bg-gradient-to-br from-amber-400 to-rose-400 text-white flex items-center justify-center font-bold">AI</div>
+              <div><div class="font-semibold">AI / ML</div><div class="text-sm text-slate-600">Math → ML → DL → Deploy</div></div>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-lg border">
+              <div class="w-12 h-12 rounded-md bg-gradient-to-br from-pink-400 to-purple-400 text-white flex items-center justify-center font-bold">DS</div>
+              <div><div class="font-semibold">Data Science</div><div class="text-sm text-slate-600">Stats → SQL → Viz → ML</div></div>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-lg border">
+              <div class="w-12 h-12 rounded-md bg-gradient-to-br from-green-400 to-teal-400 text-white flex items-center justify-center font-bold">CS</div>
+              <div><div class="font-semibold">Cybersecurity</div><div class="text-sm text-slate-600">Networking → Linux → Pentest → Labs</div></div>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-lg border">
+  <div class="w-12 h-12 rounded-md bg-gradient-to-br from-indigo-600 to-sky-400 text-white flex items-center justify-center font-bold">IOT</div>
+  <div><div class="font-semibold">IoT</div><div class="text-sm text-slate-600">Devices → Embedded → Networking → Cloud</div></div>
+</div>
+
+<div class="flex items-center gap-3 p-3 rounded-lg border">
+  <div class="w-12 h-12 rounded-md bg-gradient-to-br from-slate-400 to-indigo-600 text-white flex items-center justify-center font-bold">CL</div>
+  <div><div class="font-semibold">Cloud Computing</div><div class="text-sm text-slate-600">AWS/GCP → Containers → Kubernetes → Infra</div></div>
+</div>
+
+          </div>
+
+          <div class="mt-6 text-right">
+            <button id="btn-preview-start" class="btn-primary">Open Roadmaps</button>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 rounded-xl bg-gradient-to-br from-indigo-100 to-rose-100 shadow-md">
+          <div class="font-semibold">Notes (quick)</div>
+          <textarea id="quick-notes" class="mt-2 input h-24 w-full" placeholder="Write study notes..."></textarea>
+          <div class="mt-2 flex justify-end gap-2">
+            <button id="save-notes" class="btn-secondary">Save Notes</button>
+            <button id="clear-notes" class="btn-ghost">Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SEARCH -->
+  <section id="page-search" class="page hidden min-h-[70vh]">
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold mb-2">Enter domain</h2>
+        <p class="text-slate-600">Examples: <span class="tag">webdevelopment</span> <span class="tag">aiml</span> <span class="tag">datascience</span> <span class="tag">cybersecurity</span></p>
+      </div>
+      <div class="glass rounded-2xl p-6">
+        <div class="flex gap-3 items-center">
+          <input id="input-domain" type="text" list="domain-list" class="input flex-1" placeholder="Type domain (autocomplete)" />
+          <datalist id="domain-list">
+  <option value="webdevelopment">
+  <option value="cybersecurity">
+  <option value="aiml">
+  <option value="datascience">
+  <option value="iot">
+  <option value="cloudcomputing">
+</datalist>
+
+          <button id="btn-search" class="btn-secondary">Go</button>
+        </div>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button class="chip" data-domain="webdevelopment">Web Development</button>
+<button class="chip" data-domain="cybersecurity">Cybersecurity</button>
+<button class="chip" data-domain="aiml">AI / ML</button>
+<button class="chip" data-domain="datascience">Data Science</button>
+<button class="chip" data-domain="iot">IoT</button>
+<button class="chip" data-domain="cloudcomputing">Cloud Computing</button>
+
+        </div>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-3 gap-4">
+        <div class="p-4 rounded-xl bg-gradient-to-r from-indigo-50 to-cyan-50">
+          <div class="font-semibold">Beginner tip</div>
+          <div class="text-sm text-slate-600 mt-1">Do small, focused projects and get them on GitHub.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-gradient-to-r from-amber-50 to-rose-50">
+          <div class="font-semibold">Practice tip</div>
+          <div class="text-sm text-slate-600 mt-1">Follow a playlist from a single channel for cohesive learning.</div>
+        </div>
+       <div class="p-4 rounded-xl bg-gradient-to-r from-indigo-50 to-cyan-50 hover:scale-[1.02] hover:shadow-lg transition-transform duration-300">
+
+          <div class="font-semibold">Portfolio</div>
+          <div class="text-sm text-slate-600 mt-1">Show 3 complete projects with README and deployed link.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHOOSE DOMAIN (stylish & interactive) -->
+<section id="page-choose" class="page hidden min-h-[70vh]">
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold mb-6 animate-fade-in-up">Choose a domain</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      
+      <!-- Web Development -->
+      <button class="choose-card group hover:scale-105 hover:shadow-xl transition-transform duration-300" data-domain="webdevelopment">
+        <div class="flex items-center gap-4">
+          <div class="icon bg-gradient-to-br from-indigo-500 to-cyan-400 group-hover:rotate-6 transition-transform duration-300">💻</div>
+          <div>
+            <div class="title font-semibold group-hover:text-indigo-600">Web Development</div>
+            <div class="desc text-sm text-slate-600">Frontend & Backend</div>
+          </div>
+        </div>
+      </button>
+
+      <!-- AI / ML -->
+      <button class="choose-card group hover:scale-105 hover:shadow-xl transition-transform duration-300" data-domain="aiml">
+        <div class="flex items-center gap-4">
+          <div class="icon bg-gradient-to-br from-amber-500 to-rose-400 group-hover:-rotate-6 transition-transform duration-300">🤖</div>
+          <div>
+            <div class="title font-semibold group-hover:text-amber-600">AI / ML</div>
+            <div class="desc text-sm text-slate-600">Math & Models</div>
+          </div>
+        </div>
+      </button>
+
+      <!-- Data Science -->
+      <button class="choose-card group hover:scale-105 hover:shadow-xl transition-transform duration-300" data-domain="datascience">
+        <div class="flex items-center gap-4">
+          <div class="icon bg-gradient-to-br from-pink-500 to-purple-500 group-hover:rotate-12 transition-transform duration-300">📊</div>
+          <div>
+            <div class="title font-semibold group-hover:text-pink-600">Data Science</div>
+            <div class="desc text-sm text-slate-600">Analytics & Viz</div>
+          </div>
+        </div>
+      </button>
+
+      <!-- Cybersecurity -->
+      <button class="choose-card group hover:scale-105 hover:shadow-xl transition-transform duration-300" data-domain="cybersecurity">
+        <div class="flex items-center gap-4">
+          <div class="icon bg-gradient-to-br from-green-500 to-teal-400 group-hover:-rotate-12 transition-transform duration-300">🛡️</div>
+          <div>
+            <div class="title font-semibold group-hover:text-green-600">Cybersecurity</div>
+            <div class="desc text-sm text-slate-600">Networks & Pentest</div>
+          </div>
+        </div>
+      </button>
+      <!-- IoT -->
+<button class="choose-card group hover:scale-105 hover:shadow-xl transition-transform duration-300" data-domain="iot">
+  <div class="flex items-center gap-4">
+    <div class="icon bg-gradient-to-br from-indigo-600 to-sky-500 group-hover:rotate-6 transition-transform duration-300">🔌</div>
+    <div>
+      <div class="title font-semibold group-hover:text-indigo-600">IoT</div>
+      <div class="desc text-sm text-slate-600">Embedded devices & networking</div>
+    </div>
+  </div>
+</button>
+
+<!-- Cloud Computing -->
+<button class="choose-card group hover:scale-105 hover:shadow-xl transition-transform duration-300" data-domain="cloudcomputing">
+  <div class="flex items-center gap-4">
+    <div class="icon bg-gradient-to-br from-sky-500 to-indigo-600 group-hover:-rotate-6 transition-transform duration-300">☁️</div>
+    <div>
+      <div class="title font-semibold group-hover:text-sky-600">Cloud Computing</div>
+      <div class="desc text-sm text-slate-600">Cloud providers, infra & devops</div>
+    </div>
+  </div>
+</button>
+
+
+    </div>
+  </div>
+</section>
+
+  <!-- CODING PAGE -->
+<section id="page-coding" class="page hidden min-h-[80vh]">
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-extrabold mb-8 text-center">💻 Practice Coding</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- C Editor -->
+      <div class="glass p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-3">C Editor</h3>
+       <!-- C Editor -->
+<textarea id="c-editor" class="editor">// Hello World in C
+#include <stdio.h>
+
+int main(void) {
+    printf("Hello, world!\n");
+    return 0;
+}
+</textarea>
+
+<textarea id="c-input" class="editor mt-2" placeholder="Enter input for program..."></textarea>
+<button id="btn-run-c" class="btn-secondary mt-2">Run C</button>
+<pre id="c-output" class="output"></pre>
+
+      </div>
+
+      <!-- Python Editor -->
+      <div class="glass p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-3">Python Editor</h3>
+        <!-- Python Editor -->
+<textarea id="py-editor" class="editor"># Hello World in Python
+print("Hello, world!")</textarea>
+
+<textarea id="py-input" class="editor mt-2" placeholder="Enter input for program..."></textarea>
+<button id="btn-run-py" class="btn-secondary mt-2">Run Python</button>
+<pre id="py-output" class="output"></pre>
+
+      </div>
+
+      <!-- HTML Editor -->
+      <div class="glass p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-3">HTML Editor</h3>
+       <!-- HTML Editor -->
+<textarea id="html-editor" class="editor"><!doctype html>
+<html>
+  <head><meta charset="utf-8"><title>Hello</title></head>
+  <body>
+    <h1>Hello, world!</h1>
+    <p>This is the default starter HTML. Edit and click Run.</p>
+  </body>
+</html></textarea>
+
+<button id="btn-run-html" class="btn-secondary mt-2">Run HTML</button>
+<iframe id="html-output" class="w-full h-64 border mt-2"></iframe>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ROADMAP (vertical timeline with multiple open accordions) -->
+  <section id="page-roadmap" class="page hidden">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 id="roadmap-title" class="text-3xl font-bold"></h2>
+          <p id="roadmap-subtitle" class="text-slate-600"></p>
+        </div>
+        <div class="flex gap-3 items-center">
+          <div id="quote" class="text-sm text-slate-500 italic hidden md:block"></div>
+          <button id="btn-back" class="btn-ghost">Back</button>
+          <button id="btn-home" class="btn-ghost">Home</button>
+        </div>
+      </div>
+
+      <div id="domain-actions" class="mb-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+
+      <div id="roadmap-content" class="space-y-6"></div>
+
+      <div class="mt-10">
+        <h3 class="text-2xl font-semibold mb-3">Projects to Build</h3>
+        <ul id="project-list" class="grid md:grid-cols-2 gap-3"></ul>
+      </div>
+
+      <div class="mt-10">
+        <h3 class="text-2xl font-semibold mb-3">Recommended YouTube Channels</h3>
+        <div id="resource-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </div>
+
+      <div class="mt-10">
+        <h3 class="text-2xl font-semibold mb-3">Government / Certified Courses</h3>
+        <div id="certified-list" class="grid md:grid-cols-2 gap-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="page-about" class="page hidden min-h-[60vh]">
+    <div class="max-w-3xl mx-auto px-6 py-16 prose prose-slate">
+      <h2>About</h2>
+      <p>This tool is a student-focused interactive roadmap. It uses YouTube-first resources and stores progress locally (no server). Use the quiz, choose a domain, mark progress and take notes.</p>
+    </div>
+  </section>
+    <!-- HELP SECTION -->
+  <section id="page-help" class="page hidden min-h-[60vh]">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      <h2 class="text-3xl font-bold mb-6">Help & Support</h2>
+      <div class="space-y-6">
+        <div class="p-4 glass rounded-xl">
+          <h3 class="font-semibold text-lg mb-2">❓ How to use Roadmaps?</h3>
+          <p class="text-slate-600">Choose a domain from the navigation or quiz, then expand steps to explore resources and mark progress.</p>
+        </div>
+        <div class="p-4 glass rounded-xl">
+          <h3 class="font-semibold text-lg mb-2">📝 Where are my notes stored?</h3>
+          <p class="text-slate-600">Your notes and progress are saved locally in your browser. No server or login is needed.</p>
+        </div>
+        <div class="p-4 glass rounded-xl">
+          <h3 class="font-semibold text-lg mb-2">⚙️ Having issues?</h3>
+          <p class="text-slate-600">Try refreshing the page. If problems continue, clear browser localStorage and restart.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="mt-16 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 py-8 text-sm text-slate-600 flex items-center justify-between">
+      <span>© <span id="year"></span> CSE Career Roadmap</span>
+      <span>Made with HTML • TailwindCSS • JavaScript</span>
+    </div>
+  </footer>
+
+  <!-- Subtopic detail modal (brief + YouTube links + mark complete) -->
+  <div id="detail-modal" class="detail-modal hidden" aria-hidden="true">
+    <div class="detail-modal-card">
+      <button id="detail-close" class="detail-close" title="Close">✕</button>
+      <h3 id="detail-title" class="text-xl font-semibold mb-2"></h3>
+      <p id="detail-desc" class="text-slate-700 mb-3"></p>
+      <div id="detail-brief" class="mb-3 text-slate-700 whitespace-pre-line"></div>
+      <div id="detail-uses" class="mb-3 text-sm text-slate-600"></div>
+      <div id="detail-links" class="flex flex-col gap-2"></div>
+      <div class="mt-4 flex justify-between items-center">
+        <div id="detail-video" class="text-sm text-slate-500"></div>
+        <div class="flex gap-2">
+          <button id="detail-mark" class="btn-secondary">Mark Complete</button>
+          <button id="detail-close-2" class="btn-ghost">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz modal -->
+  <div id="quiz-modal" class="detail-modal hidden" aria-hidden="true">
+    <div class="detail-modal-card">
+      <button id="quiz-close" class="detail-close" title="Close">✕</button>
+      <h3 class="text-xl font-semibold mb-2">Quick Recommendation Quiz</h3>
+      <p class="text-slate-600 mb-4">Answer yes/no to get a recommended domain.</p>
+      <div id="quiz-questions" class="space-y-3"></div>
+      <div class="mt-4 flex justify-end gap-2">
+        <button id="quiz-run" class="btn-secondary">Get Recommendation</button>
+        <button id="quiz-cancel" class="btn-ghost">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- Skulpt (client-side Python) -->
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.0.0/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.0.0/dist/skulpt-stdlib.js"></script>
+
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
