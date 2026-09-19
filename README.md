@@ -1,6 +1,6 @@
 # CSE Career Domain Roadmap 🚀
 
-A web-based platform designed to help Computer Science students explore different career domains and follow structured learning roadmaps.
+A web-based platform designed to help Computer Science students explore different career domains and follow structured learning roadmaps. n
 
 ## 📌 About the Project
 
